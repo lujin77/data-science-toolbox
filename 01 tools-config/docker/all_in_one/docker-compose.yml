@@ -1,0 +1,41 @@
+mysql:
+  image: mysql
+  ports:
+   - "8806:3306"
+  volumes:
+   - /data/var/mysql/:/var/lib/mysql
+   - /data/local/my.cnf:/etc/mysql/my.cnf
+redis:
+  image: redis
+  ports:
+   - "7000:6379"
+memcached:
+  image: memcached
+  ports:
+   - "10000:11211"
+mongo:
+  image: mongo
+  ports:
+   - "30000:27017"
+  volumes:
+   - /data/var/mongo-files/data:/data/db
+   - /data/var/mongo-files:/opt/keyfile
+rabbitmq:
+  image: rabbitmq:3.6.1-management
+  hostname: rabbit1
+  #name: rmq
+  environment:
+   - RABBITMQ_DEFAULT_USER=admin
+   - RABBITMQ_DEFAULT_PASS=PASSWORD
+   - RABBITMQ_DEFAULT_VHOST=my_vhost
+   - RABBITMQ_NODENAME=rabbit1
+   - RABBITMQ_ERLANG_COOKIE='NICAYNNZGMAHWQLRVQQU'
+  ports:
+   - "5671:5671"
+   - "15671:15671"
+   - "5673:5672"
+   - "15672:15672"
+   - "25672:25672"
+   - "4369:4369"
+  volumes:
+   - /etc/hosts:/etc/hosts

@@ -1,0 +1,35 @@
+
+JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_111.jdk/Contents/Home
+CLASSPATH=.:$JAVA_HOME/lib
+SCALA_HOME=/usr/local/Cellar/scala/2.11.8/libexec
+PYTHON_HOME=/Users/lujin/anaconda
+
+ZOO_HOME=/Users/lujin/sofeware/zookeeper-3.4.9
+HADOOP_HOME=/Users/lujin/sofeware/hadoop-2.7.3
+HIVE_HOME=/Users/lujin/sofeware/apache-hive-2.1.0-bin
+SPARK_HOME=/Users/lujin/sofeware/spark-2.0.0-bin-hadoop2.7
+STORM_HOME=/Users/lujin/sofeware/apache-storm-1.0.2
+HBASE_HOME=/Users/lujin/sofeware/hbase-1.2.4
+
+PATH=$JAVA_HOME/bin:$SCALA_HOME/bin:$PYTHON_HOME/bin:$PATH
+PATH=$PATH:$ZOO_HOME/bin
+PATH=$PATH:$HADOOP_HOME/bin:$HADOOP_HOME/sbin
+PATH=$PATH:$HIVE_HOME/bin:$PATH
+PATH=$PATH:$SPARK_HOME/bin:$SPARK_HOME/sbin
+PATH=$PATH:$STORM_HOME/bin
+
+export JAVA_HOME PYTHON_HOME SCALA_HOME
+export HADOOP_HOME HIVE_HOME SPARK_HOME STORM_HOME ZOO_HOME HBASE_HOME
+#export HADOOP_CONF_DIR=$HADOOP_HOME/etc/hadoop
+#export YARN_CONF_DIR=$HADOOP_HOME/etc/hadoop
+export PATH CLASSPATH
+
+
+# pyspark depracated
+#export PYTHONPATH=$PYTHONPATH:$SPARK_HOME/python
+#export PYSPARK_SUBMIT_ARGS="--master yarn-client pyspark-shell"
+#export PYSPARK_SUBMIT_ARGS="--master yarn-client"
+
+# pyspark
+#export PYTHONPATH=$SPARK_HOME/python/:$PYTHONPATH
+#export PYTHONPATH=$SPARK_HOME/python/lib/py4j-0.10.1-src.zip:$PYTHONPATH
