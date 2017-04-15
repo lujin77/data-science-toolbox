@@ -1,8 +1,7 @@
 非root下安装mysql
 =====
 
-1. 安装mysql依赖的异步io库：libaio.so
------
+### 1. 安装mysql依赖的异步io库：libaio.so
 
 > Optional，如果已经安装过可跳过
 
@@ -13,8 +12,8 @@
 export LD_LIBRARY_PATH=/path/to/liaio/lib:$LD_LIBRARY_PATH
 - - -
 
-2.设置my.cnf
------
+### 2.设置my.cnf
+
 > 使用 --defaults-file=my.cnf 来指定配置文件运行 （支持多环境共存）
 
 ```bash
@@ -48,30 +47,30 @@ pid-file = /home/lujin/data/mysql/data/mysqld.pid
 ```
 - - -
 
-3. 执行安装命令，使配置文件生效
------
+### 3. 执行安装命令，使配置文件生效
+
 ```bash
 ./scripts/mysql_install_db --defaults-file=my.cnf
 ```
 - - -
 
-4. 启动mysql服务
------
+### 4. 启动mysql服务
+
 > 执行了步骤3之后，supervisord里面配置这一句即可
 ```bash
 ./bin/mysqld_safe &
 ```
 - - -
 
-5.修改root用户密码
------
+### 5.修改root用户密码
+
 ```bash
 bin/mysqladmin -h '127.0.0.1' -u root password PASSWORD
 ```
 - - -
 
-6.进入mysql数据库，设置密码
------
+### 6.进入mysql数据库，设置密码
+
 ```bash
 bin/mysql -h '127.0.0.1' -u root -p
 ```
@@ -89,15 +88,15 @@ update user set host = '%' where user = 'root';
 ```
 - - -
 
-7. alias
------
+### 7. alias
+
 ```bash
 alias mysql="/home/lujin/software/mariadb/bin/mysql --defaults-file=/home/lujin/software/mariadb/my.cnf"
 ```
 - - -
 
-8. 授权
------
+### 8. 授权
+
 ```bash
 CREATE USER 'name'@'localhost' IDENTIFIED BY 'password';
 grant all privileges on *.* to 'root'@'%' identified by 'PASSWORD' with grant option;
