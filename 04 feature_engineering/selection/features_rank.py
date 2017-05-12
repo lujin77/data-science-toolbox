@@ -64,6 +64,16 @@ def chi2_rank(col_names, X, y, topK=10):
 
 @timeit
 def pearsonr_rank(col_names, X, y, topK=10):
+    '''
+    皮尔逊相关系数特征重要性检测
+
+    :param col_names: 特征名，list
+    :param X: 特征矩阵，numpy 2D array
+    :param y: 标签向量，numpy array
+    :param topK: 输出前k个变量
+    :return: 排序后的特征dataframe，含权重和置信度
+    '''
+
     scores = []
     pvalues = []
     for i in range(0, len(col_names)):
@@ -84,6 +94,16 @@ def pearsonr_rank(col_names, X, y, topK=10):
 
 @timeit
 def mutual_infomation_rank(col_names, X, y, topK=10):
+    '''
+    互信息特征重要性检测
+
+    :param col_names: 特征名，list
+    :param X: 特征矩阵，numpy 2D array
+    :param y: 标签向量，numpy array
+    :param topK: 输出前k个变量
+    :return: 排序后的特征dataframe，含权重和置信度
+    '''
+
     # 因为互信息计算较慢，进行采样后再计算
     original_size = len(y)
     sampling_size = 2000 if original_size > 2000 else original_size
@@ -109,6 +129,16 @@ def mutual_infomation_rank(col_names, X, y, topK=10):
 
 @timeit
 def tree_model_rank(col_names, X, y, topK=10):
+    '''
+    树模型特征重要性检测
+
+    :param col_names: 特征名，list
+    :param X: 特征矩阵，numpy 2D array
+    :param y: 标签向量，numpy array
+    :param topK: 输出前k个变量
+    :return: 排序后的特征dataframe，含权重和置信度
+    '''
+
     # 为减少运算量，进行随机采样
     original_size = len(y)
     sampling_size = 5000 if original_size > 5000 else original_size
