@@ -1,2 +1,2 @@
 # Font Family on MacOS support Chinese
-> Courier,WenQuanYi Micro Hei Mono
+> Menlo,WenQuanYi Micro Hei Mono
